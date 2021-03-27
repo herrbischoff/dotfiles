@@ -1,0 +1,1 @@
+Plug 'rstacruz/vim-hyperstyle'

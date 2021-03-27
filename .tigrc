@@ -1,0 +1,16 @@
+set editor-line-number = true
+set mouse = true
+set mouse-scroll = 1
+set refresh-mode = periodic
+set refresh-interval = 2
+
+color cursor default 237
+
+bind generic S :source ~/.tigrc
+
+# Add keybinding to quickly jump to the next diff chunk in the stage view
+bind stage <Enter> :/^@@
+
+# User-defined external command to amend the last commit
+bind status + !git commit --amend
+bind status P !git push origin HEAD

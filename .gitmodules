@@ -1,0 +1,3 @@
+[submodule "docs/cheatsheets"]
+	path = docs/cheatsheets
+	url = https://github.com/herrbischoff/cheatsheets.git

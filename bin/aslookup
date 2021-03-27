@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ -z $1 ]; then
+    echo "Missing argument: `basename $0` <IP>"
+else
+    TMPFILE="/tmp/aslookuptmp"
+    whois -h whois.cymru.com $1 > $TMPFILE
+    OUTPUT=`cat $TMPFILE | tail -n +2 | sed -E 's/([[:digit:]]*) +\| .* \| (.*), (.*)/AS\1 \| \2 \| \3/'`
+    echo "$OUTPUT"
+    rm $TMPFILE
+fi

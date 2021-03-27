@@ -1,0 +1,84 @@
+# Don't print a new line at the start of the prompt
+# add_newline = false
+
+[aws]
+disabled = true
+
+[character]
+success_symbol = "#(bold green)"
+error_symbol = "#(bold red)"
+
+[conda]
+disabled = true
+
+[crystal]
+disabled = true
+
+[directory]
+fish_style_pwd_dir_length = 1
+
+[docker_context]
+disabled = true
+
+[dotnet]
+disabled = true
+
+[elixir]
+disabled = true
+
+[elm]
+disabled = true
+
+[erlang]
+disabled = true
+
+[git_branch]
+symbol = "⎇ "
+
+[golang]
+disabled = true
+
+[java]
+disabled = true
+
+[julia]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[nim]
+disabled = true
+
+[nix_shell]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[package]
+disabled = true
+
+[ocaml]
+disabled = true
+
+[php]
+disabled = true
+
+# [python]
+# disabled = true
+
+[ruby]
+disabled = true
+
+[rust]
+disabled = true
+
+[singularity]
+disabled = true
+
+[terraform]
+disabled = true
+
+[zig]
+disabled = true

@@ -1,0 +1,70 @@
+[user]
+	email = marcel@herrbischoff.com
+	name = Marcel Bischoff
+	signingkey = 0F1C55C8B0A039CD
+[core]
+	editor = nvim
+	excludesfile = ~/.gitignore_global
+	quotepath = false
+	# pager = diff-so-fancy | less --tabs=4 -RFX
+	autocrlf = input
+[color]
+	branch = auto
+	status = auto
+[push]
+#	default = simple
+	default = matching
+[alias]
+	pr = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+	pr-clean = "!git for-each-ref refs/heads/pr/* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+	praise = blame
+    amend = commit --amend
+    b = branch
+    ci = commit
+    co = checkout
+    d = log --diff-filter=D -- $1
+    di = diff
+    graph = "!git log --graph --all --decorate --stat --date=iso"
+    ignore = "!f() { echo $1 >> \"${GIT_PREFIX}.gitignore\"; }; f"
+    latest = for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+    overview = "!git log --all --oneline --no-merges"
+    prepush = "!git rebase -i @{u}"
+    recap = "!git log --all --oneline --no-merges --author=marcel@herrbischoff.com"
+    recent = "!git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format=\"%(refname:short)\""
+    st = status
+    stats = !git shortlog -sn
+    today = "!git log --since=00:00:00 --all --no-merges --oneline --author=marcel@herrbischoff.com"
+[filter "media"]
+	clean = git media clean %f
+	required = true
+	smudge = git media smudge %f
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[github]
+	user = herrbischoff
+[init]
+    # templatedir = ~/.git_template
+[pull]
+	rebase = true
+[mergetool]
+	keepBackup = false
+	prompt = false
+[difftool]
+	prompt = false
+[merge]
+	tool = opendiff
+[diff]
+	tool = opendiff
+[cola]
+	spellcheck = false
+[branch]
+	autosetupmerge = true
+[rerere]
+	enabled = true
+[lfs]
+    concurrenttransfer = 16
+[commit]
+	verbose = true
