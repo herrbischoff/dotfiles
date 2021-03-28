@@ -156,8 +156,12 @@ else
     #     set -gx PATH $PATH $HOME/.yarn/bin $HOME/.config/yarn/global/node_modules/.bin
     # end
 
+    # Starship
     if command -q starship
         starship init fish | source
     end
+
+    # Enable vi keybindings
+    fish_vi_key_bindings
 
 end
