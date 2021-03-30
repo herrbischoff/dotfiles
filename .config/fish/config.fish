@@ -34,7 +34,7 @@ else
     # OS specific paths
     switch $OS
         case Darwin
-            set -g BROWSER $HOME/bin/safari
+            set -gx BROWSER $HOME/bin/safari
             set -g fish_user_paths /usr/local/sbin $fish_user_paths
             set -g fish_user_paths "/usr/local/opt/node@14/bin" $fish_user_paths
             set -g fish_user_paths (gem environment gemdir)/bin "/usr/local/opt/ruby/bin" $fish_user_paths
@@ -56,10 +56,12 @@ else
                 set -x PATH $PATH /usr/local/pkg/sbin /usr/local/pkg/bin
             end
         case FreeBSD
+            set -gx BROWSER w3m
             # Life without color is depressing
             set -gx COLORTERM yes
             set -gx CLICOLOR yes
         case '*'
+            set -gx BROWSER w3m
             # null
     end
 
