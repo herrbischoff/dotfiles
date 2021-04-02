@@ -72,10 +72,10 @@ else
     set -gx MANPAGER 'less -X'
 
     # Abbreviations
-    source $HOME/.config/fish/abbreviations.fish &> /dev/null
+    source $HOME/.config/fish/abbreviations.fish
 
     # Colorscheme
-    source $HOME/.config/fish/colorscheme.fish &> /dev/null
+    source $HOME/.config/fish/colorscheme.fish
 
     # fzf
     if test -d $HOME/.fzf/shell
