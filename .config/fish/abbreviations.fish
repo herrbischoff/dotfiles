@@ -105,6 +105,9 @@ abbr --add pf-top "doas pftop -v rules"
 # Nginx
 abbr --add nginx-log "doas multitail --mergeall /var/log/nginx/*.access.log"
 
+# Fail2Ban
+abbr -add fail2ban-log "doas multitail /var/log/fail2ban.log"
+
 # ArchiveBox
 abbr --add aa "archivebox add"
 
