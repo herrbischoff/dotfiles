@@ -79,7 +79,7 @@ else
 
     # fzf
     if test -d $HOME/.fzf/shell
-        source $HOME/.fzf/shell/key-bindings.fish
+        fzf_key_bindings
         set -x FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
     end
 
