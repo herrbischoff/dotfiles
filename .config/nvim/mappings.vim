@@ -89,9 +89,6 @@ inoremap <silent> ˚ <Esc>:m .-2<CR>==gi
 vnoremap <silent> ∆ :m '>+1<CR>gv=gv
 vnoremap <silent> ˚ :m '<-2<CR>gv=gv
 
-" Quickfix for TO-DOs, FIX-MEs and XXXs (Alt-t)
-nmap † :Rg TODO\|FIXME\|XXX<cr>
-
 " Navigate the quicklist easily
 map <leader>n :cn<cr>
 map <leader>p :cp<cr>

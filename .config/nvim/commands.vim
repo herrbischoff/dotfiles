@@ -7,3 +7,4 @@ scriptencoding utf-8
 "
 
 command Nsort execute "normal! ggguG:sort u<cr>"
+command Todo execute "normal! :Rg TODO\|FIXME\|XXX<cr>"
