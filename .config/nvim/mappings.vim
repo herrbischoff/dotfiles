@@ -82,12 +82,12 @@ nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 
 " Enable key mapping for moving lines up and down
-nnoremap <silent> <C-down> :m .+1<CR>==
-nnoremap <silent> <C-up> :m .-2<CR>==
-inoremap <silent> <C-down> <Esc>:m .+1<CR>==gi
-inoremap <silent> <C-up> <Esc>:m .-2<CR>==gi
-vnoremap <silent> <C-down> :m '>+1<CR>gv=gv
-vnoremap <silent> <C-up> :m '<-2<CR>gv=gv
+nnoremap <silent> ∆ :m .+1<CR>==
+nnoremap <silent> ˚ :m .-2<CR>==
+inoremap <silent> ∆ <Esc>:m .+1<CR>==gi
+inoremap <silent> ˚ <Esc>:m .-2<CR>==gi
+vnoremap <silent> ∆ :m '>+1<CR>gv=gv
+vnoremap <silent> ˚ :m '<-2<CR>gv=gv
 
 " Quickfix for TO-DOs, FIX-MEs and XXXs (Alt-t)
 nmap † :Rg TODO\|FIXME\|XXX<cr>
