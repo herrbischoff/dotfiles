@@ -62,7 +62,10 @@ abbr --add ya 'yadm add'
 abbr --add yc 'yadm commit'
 abbr --add yca 'yadm commit -a'
 abbr --add yd 'yadm diff'
+abbr --add ypull 'yadm pull'
+abbr --add ypush 'yadm push'
 abbr --add yst 'yadm status'
+abbr --add yup 'yadm pull && yadm submodule update --init --recursive'
 
 # npm shortcuts
 abbr --add nls 'npm list --depth=0'
