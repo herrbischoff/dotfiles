@@ -11,7 +11,9 @@ else
     set -gx OS (uname)
 
     # Terminal colors
-    set -gx TERM xterm-256color
+    if ! test -n "$TMUX"
+        set -gx TERM xterm-256color
+    end
 
     # Set language environment
     set -gx LANG en_US.UTF-8
