@@ -69,8 +69,6 @@ set autoindent " autoindent based on line above, works most of the time
 set copyindent " copy the previous indentation on autoindenting
 " set clipboard=unnamed
 set cmdheight=2 " Give more space for displaying messages.
-set colorcolumn=80,100 " Make a mark for columns 80 and 100
-set cursorline
 set diffopt+=vertical
 set expandtab " use spaces instead of tabs
 set foldenable " enable folding
@@ -132,17 +130,6 @@ if has('nvim')
     set inccommand=nosplit
 endif
 
-if !empty(glob('~/.config/nvim/full'))
-    colorscheme nord
-    set background=dark
-
-    " Enable italics
-    " highlight Comment gui=italic
-    " highlight Comment cterm=italic
-    " set t_ZH=[3m
-    " set t_ZR=[23m
-endif
-
 " Make background transparent
 if (has('nvim'))
     highlight Normal guibg=none ctermbg=none gui=none
@@ -156,3 +143,18 @@ endif
 
 " SignColumn
 highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
+
+if !empty(glob('~/.config/nvim/full'))
+    set colorcolumn=80,100 " Make a mark for columns 80 and 100
+    set cursorline
+
+    colorscheme nord
+    set background=dark
+
+    " Enable italics
+    " highlight Comment gui=italic
+    " highlight Comment cterm=italic
+    " set t_ZH=[3m
+    " set t_ZR=[23m
+endif
+
