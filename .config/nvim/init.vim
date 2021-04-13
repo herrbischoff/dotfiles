@@ -9,28 +9,34 @@ scriptencoding utf-8
 
 set shell=/bin/sh
 
-let OS=substitute(system('uname -s'),"\n","","")
-if (OS == "Darwin")
-    let g:loaded_python_provider = 1 " Disable Python 2 support
-    let g:loaded_ruby_provider = 1 " Disable Ruby support
-    " let g:loaded_node_provider = 1 " Disable Node support
-    " let g:python3_host_prog = '/opt/local/bin/python3.7'
+let g:loaded_python_provider = 1 " Disable Python 2 support
+let g:loaded_ruby_provider = 1   " Disable Ruby support
 
-    if empty(glob('~/.config/nvim/autoload/plug.vim'))
-      silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-    endif
-
-    call plug#begin()
-        for g:rcfile in split(globpath('~/.config/nvim/plugins', '*.vim'), '\n')
-            execute('source '.g:rcfile)
-        endfor
-    call plug#end()
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" Load configuration conditionally
+call plug#begin()
+    for g:rcfile in split(globpath('~/.config/nvim/plugins/tiny', '*.vim'), '\n')
+        execute('source '.g:rcfile)
+    endfor
+    if !empty(glob('~/.config/nvim/small')) || !empty(glob('~/.config/nvim/full'))
+        for g:rcfile in split(globpath('~/.config/nvim/plugins/small', '*.vim'), '\n')
+            execute('source '.g:rcfile)
+        endfor
+    endif
+    if !empty(glob('~/.config/nvim/full'))
+        for g:rcfile in split(globpath('~/.config/nvim/plugins/full', '*.vim'), '\n')
+            execute('source '.g:rcfile)
+        endfor
+    endif
+call plug#end()
+
 filetype plugin indent on " Enable filetype detection, allow indentation and syntax be set byt plugins
-syntax enable " Enable syntax processing
+syntax enable             " Enable syntax processing
 
 source $HOME/.config/nvim/settings.vim
 source $HOME/.config/nvim/functions.vim
@@ -50,20 +56,5 @@ let g:plug_window = 'enew'
 
 silent! so .vimlocal
 
-" Overide italic momments
+" Overide italic comments
 hi Comment gui=NONE
-
-if (OS == "Darwin")
-    " deoplete
-    call deoplete#custom#option({
-    \ 'auto_complete_delay': 200,
-    \ 'smart_case': v:true,
-    \ 'enable_at_startup': v:true,
-    \ 'enable_ignore_case': v:true,
-    \ 'enable_smart_case': v:true,
-    \ 'enable_camel_case': v:true,
-    \ 'enable_refresh_always': v:true,
-    \ 'max_abbr_width': v:false,
-    \ 'max_menu_width': v:false,
-    \ })
-endif

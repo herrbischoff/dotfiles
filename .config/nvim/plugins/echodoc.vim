@@ -1,1 +1,0 @@
-Plug 'Shougo/echodoc.vim'

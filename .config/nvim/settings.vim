@@ -64,19 +64,11 @@ set undofile
 set undolevels=1000 " use many muchos levels of undo
 set writebackup
 
-" Cursor shape
-" if exists('$TMUX')
-    " let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
-    " let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
-" else
-    " let &t_SI = "\e[5 q"
-    " let &t_EI = "\e[2 q"
-" endif
-
 set autoindent " autoindent based on line above, works most of the time
 " set breakindent
-" set copyindent " copy the previous indentation on autoindenting
+set copyindent " copy the previous indentation on autoindenting
 " set clipboard=unnamed
+set cmdheight=2 " Give more space for displaying messages.
 set diffopt+=vertical
 set expandtab " use spaces instead of tabs
 set foldenable " enable folding
@@ -116,6 +108,7 @@ set softtabstop=4 " in insert mode, tabs are 4 spaces
 set splitbelow
 set splitright
 set textwidth=0 " turn off hard word wrapping
+set updatetime=300
 set wrap
 set wrapmargin=0
 set tagcase=followscs " Follow smartcase and ignorecase when doing tag search
@@ -125,8 +118,7 @@ set grepprg=rg\ --vimgrep
 " MacVim
 if (has('gui_macvim'))
     " set linespace=2 " Set line spacing
-    set guifont=Go\ Mono:h13
-    " set guifont=Iosevka\ Term:h15
+    set guifont=SF\ Mono\ Nerd\ Font:h12
     set guioptions=
     set guicursor=a:blinkon0
     set t_Co=256
@@ -138,7 +130,7 @@ if has('nvim')
     set inccommand=nosplit
 endif
 
-if (OS == "Darwin")
+if !empty(glob('~/.config/nvim/small')) || !empty(glob('~/.config/nvim/full'))
     set colorcolumn=80,100 " Make a mark for columns 80 and 100
     set cursorline
 
@@ -162,7 +154,7 @@ if (OS == "Darwin")
     endif
 
     " Make background transparent
-    if (has('nvim') && !has("gui_vimr"))
+    if (has('nvim'))
         highlight Normal guibg=none ctermbg=none gui=none
         highlight NonText guibg=none ctermbg=none gui=none
         highlight SignColumn guibg=none ctermbg=none gui=none
