@@ -69,6 +69,8 @@ set autoindent " autoindent based on line above, works most of the time
 set copyindent " copy the previous indentation on autoindenting
 " set clipboard=unnamed
 set cmdheight=2 " Give more space for displaying messages.
+set colorcolumn=80,100 " Make a mark for columns 80 and 100
+set cursorline
 set diffopt+=vertical
 set expandtab " use spaces instead of tabs
 set foldenable " enable folding
@@ -130,15 +132,7 @@ if has('nvim')
     set inccommand=nosplit
 endif
 
-if !empty(glob('~/.config/nvim/small')) || !empty(glob('~/.config/nvim/full'))
-    set colorcolumn=80,100 " Make a mark for columns 80 and 100
-    set cursorline
-
-    " let g:seoul256_background = 236
-    " colorscheme seoul256
-    " colorscheme OceanicNextMnml
-    " colorscheme OceanicNext
-    " colorscheme solarized8
+if !empty(glob('~/.config/nvim/full'))
     colorscheme nord
     set background=dark
 
@@ -147,23 +141,18 @@ if !empty(glob('~/.config/nvim/small')) || !empty(glob('~/.config/nvim/full'))
     " highlight Comment cterm=italic
     " set t_ZH=[3m
     " set t_ZR=[23m
-
-    " VimR
-    if (has("gui_vimr"))
-        let g:python3_host_prog = '/usr/local/bin/python3'
-    endif
-
-    " Make background transparent
-    if (has('nvim'))
-        highlight Normal guibg=none ctermbg=none gui=none
-        highlight NonText guibg=none ctermbg=none gui=none
-        highlight SignColumn guibg=none ctermbg=none gui=none
-        highlight EndOfBuffer guibg=none ctermbg=none gui=none
-    else
-        highlight Normal ctermbg=none
-        highlight NonText ctermbg=none
-    endif
-
-    " SignColumn
-    highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 endif
+
+" Make background transparent
+if (has('nvim'))
+    highlight Normal guibg=none ctermbg=none gui=none
+    highlight NonText guibg=none ctermbg=none gui=none
+    highlight SignColumn guibg=none ctermbg=none gui=none
+    highlight EndOfBuffer guibg=none ctermbg=none gui=none
+else
+    highlight Normal ctermbg=none
+    highlight NonText ctermbg=none
+endif
+
+" SignColumn
+highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
