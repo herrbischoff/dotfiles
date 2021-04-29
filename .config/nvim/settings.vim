@@ -98,7 +98,7 @@ set shiftwidth=4 " when reading, tabs are 4 spaces
 set showbreak=↪ " Show line wrapping
 set showmatch
 set smartcase
-set smartindent " smarter indent for C-like languages
+" set smartindent " smarter indent for C-like languages
 set noshiftround
 " set nopreserveindent
 set smarttab

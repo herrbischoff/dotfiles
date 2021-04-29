@@ -13,15 +13,22 @@ let g:ale_open_list = 0
 let g:airline#extensions#ale#enabled = 1
 " let g:ale_lint_on_text_changed = 'normal'
 let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'php': ['phpcs'],
-\   'vue': ['stylelint', 'eslint'],
-\   'scss': ['stylelint'],
+\  'css':        ['csslint'],
+\  'javascript': ['standard'],
+\  'json':       ['jsonlint'],
+\  'php':        ['phpcs'],
+\  'scss':       ['stylelint'],
+\  'vue':        ['stylelint', 'eslint'],
+\  'yaml':       ['yamllint']
 \}
 let b:ale_fixers = {
-\   'js': ['eslint'],
-\   'vim': ['trim_whitespace', 'remove_trailing_lines'],
-\   'vue': ['eslint'],
+\  'css':        ['prettier'],
+\  'javascript': ['prettier-standard'],
+\  'json':       ['prettier'],
+\  'scss':       ['prettier'],
+\  'vim':        ['trim_whitespace', 'remove_trailing_lines'],
+\  'vue':        ['eslint'],
+\  'yml':        ['prettier']
 \}
 
 let g:ale_linter_aliases =  {'vue': ['javascript', 'scss']}
