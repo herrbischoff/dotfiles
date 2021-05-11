@@ -46,6 +46,7 @@
 [github]
 	user = herrbischoff
 [init]
+	defaultBranch = main
     # templatedir = ~/.git_template
 [pull]
 	rebase = true
