@@ -1,0 +1,17 @@
+#!/usr/bin/env fish
+
+set -l tmp (mktemp)
+set -l file ~/code/github/trackers/domains.txt
+
+echo $argv[1] > $tmp
+cat $file | sed -E '/^#|^$/d' >> $tmp
+echo "# Manually Spotted Abusive, Crappy, Scummy, Trashy" > $tmp
+echo "# and Otherwise Questionable Domain Names" > $tmp
+echo "# https://github.com/herrbischoff/trackers" > $tmp
+echo > $tmp
+cat $tmp | sort -u > $file
+
+cd ~/code/github/trackers && \
+git add domains.txt && \
+git commit -a -m "Update domains" && \
+git push

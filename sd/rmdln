@@ -1,0 +1,3 @@
+#!/bin/sh
+
+find -L $1 -name . -o -type d -prune -o -type l -exec rm '{}' +

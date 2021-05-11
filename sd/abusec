@@ -1,0 +1,7 @@
+#!/usr/bin/env fish
+
+if not count $argv > /dev/null
+    echo "Usage: $_ <IP>"
+else
+    whois $argv[1] | grep 'Abuse' | grep -E -o "\b[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+.[a-zA-Z0-9.-]+\b"
+end

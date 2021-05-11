@@ -1,6 +1,4 @@
-#
-# Update functions
-#
+#!/usr/bin/env fish
 
 function __freebsd_pkg
 	printf "\n====[ Upgrade Software ] ===================================\n"; and \
@@ -129,28 +127,26 @@ end
 
 #####
 
-function update --description 'Update system software'
-	switch (uname)
-		case Darwin
-			# __macos_software_update
-			__macos_appstore
-			# __macos_macports
-			__macos_homebrew
-			__update_node_packages
-		case Linux
-			__debian_apt
-			__update_node_packages
-		case FreeBSD
-			if [ "$argv[1]" = "source" ]
-                __freebsd_portsnap
-                __freebsd_ezjail_ports
-                __freebsd_portmaster
-            else
-                __freebsd_portsnap
-                __freebsd_ezjail_ports
-                __freebsd_pkg
-            end
-		case '*'
-			printf "No update function for %s yet." (uname)
-	end
+switch (uname)
+    case Darwin
+        # __macos_software_update
+        __macos_appstore
+        # __macos_macports
+        __macos_homebrew
+        __update_node_packages
+    case Linux
+        __debian_apt
+        __update_node_packages
+    case FreeBSD
+        if [ "$argv[1]" = "source" ]
+            __freebsd_portsnap
+            __freebsd_ezjail_ports
+            __freebsd_portmaster
+        else
+            __freebsd_portsnap
+            __freebsd_ezjail_ports
+            __freebsd_pkg
+        end
+    case '*'
+        printf "No update function for %s yet." (uname)
 end

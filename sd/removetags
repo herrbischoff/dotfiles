@@ -1,0 +1,9 @@
+#!/usr/bin/env fish
+
+if test (count $argv) -gt 0
+    for f in $argv
+        tag --remove \* $f
+    end
+else
+    echo 'Please specify files.' >&2
+end

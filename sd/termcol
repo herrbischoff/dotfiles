@@ -1,0 +1,8 @@
+#!/bin/sh
+
+tcolors=`echo $TERM | grep -oE '2|4|8|16|32|64|128|256'`
+tcolors=`echo $tcolors-1 | bc`
+for i in `seq 0 $tcolors`; do
+    printf "\x1b[38;5;%smcolor%s " $i $i
+done
+unset -v tcolors

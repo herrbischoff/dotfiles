@@ -73,6 +73,9 @@ abbr --add nls 'npm list --depth=0'
 # fzf
 abbr --add preview 'fzf --preview \'head -100 {}\''
 
+# ZFS
+abbr --add zfsls "zfs list -o name,used,avail,refer,mountpoint,compression,compressratio,dedup"
+
 # IP addresses
 abbr --add extip 'dig +short myip.opendns.com @resolver1.opendns.com'
 abbr --add locip 'ipconfig getifaddr en0'
@@ -121,3 +124,12 @@ abbr --add pim "pass insert -m"
 abbr --add pe "pass edit"
 abbr --add pc "pass -c"
 abbr --add pg "pass generate -cn"
+
+# irssi
+# abbr --add irssi "env TERM=screen-256color irssi"
+
+# YouTube-DL
+abbr --add yt "youtube-dl"
+
+# Weather
+abbr --add weather "curl wttr.in"

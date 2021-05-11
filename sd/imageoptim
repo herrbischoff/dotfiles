@@ -1,0 +1,8 @@
+#!/usr/bin/env fish
+
+switch $OS
+    case Darwin
+        /Applications/ImageOptim.app/Contents/MacOS/ImageOptim $argv
+    case '*'
+        echo "This command is only supported on macOS."
+end

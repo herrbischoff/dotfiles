@@ -1,0 +1,4 @@
+#!/bin/sh
+
+nvim ~/docs/cheatsheets/snippets.md && \
+yadm commit ~/docs/cheatsheets/snippets.md
