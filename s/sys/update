@@ -20,7 +20,7 @@ end
 function __freebsd_portsnap
     if test -d /usr/ports
         printf "\n====[ Update Ports tree ]===================================\n"; and \
-        doas portsnap fetch update
+        doas portsnap fetch auto
     end
 end
 
