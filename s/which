@@ -2,6 +2,6 @@
 
 set -euo pipefail
 
-root=${SD_ROOT:-$HOME/sd}
+root=${SD_ROOT:-$HOME/s}
 script=$(echo "$@" | tr ' ' /)
 echo "$root/$script"

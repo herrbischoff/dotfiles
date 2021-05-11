@@ -2,11 +2,11 @@
 
 set -euo pipefail
 
-file=$(sd which "$@")
+file=$(s which "$@")
 helpfile="$file.help"
 if [[ -d "$file" ]]; then
-  # sd will print subcommands when given a directory
-  sd "$@"
+  # s will print subcommands when given a directory
+  s "$@"
 elif [[ -f "$helpfile" ]]; then
   cat "$helpfile"
 else

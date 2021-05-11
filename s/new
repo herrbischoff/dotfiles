@@ -2,14 +2,14 @@
 
 set -euo pipefail
 
-script=$(sd which "$@")
+script=$(s which "$@")
 
 mkdir -p "$(dirname "$script")"
 cat > "$script" <<EOF
-#!/usr/bin/env bash
+#!/bin/sh
 
 set -euo pipefail
 EOF
 
 chmod +x "$script"
-sd edit "$@"
+s edit "$@"

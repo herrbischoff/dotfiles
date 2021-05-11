@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-cat "$(sd which "$@")"
+$VISUAL "$(s which "$@")"

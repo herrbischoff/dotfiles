@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+    echo "Usage: `basename $0` <IP>"
+else
+    ASN=`whois -h whois.radb.net $1 | grep origin: | awk '{print $2}'`
+    echo "#"
+    echo "## $ASN"
+    echo
+    whois -h whois.radb.net -- "-i origin $ASN" | grep '^route:' | awk '{print $2}' | cidr-merge
+    whois -h whois.radb.net -- "-i origin $ASN" | grep '^route6:' | awk '{print $2}' | cidr-merge
+    unset ASN
+fi
