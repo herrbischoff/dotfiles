@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -euo pipefail
+
+if [ -z "$1" ]; then
+    echo "Usage: `basename $0` <IP>"
+else
+    IPFR=`echo $1 | sed -E 's/\.[[:digit:]]+$/\./'`
+    for i in `seq 0 255`; do
+        echo $IPFR$i \| `host $IPFR$i`
+    done
+fi
