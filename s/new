@@ -10,8 +10,8 @@ cat > "$script" <<EOF
 
 set -euo pipefail
 
-if [ -z "$1" ]; then
-    echo "Usage: `basename $0` <IP>"
+if [ -z "\$1" ]; then
+    echo "Usage: `basename \$0` <IP>"
 else
     echo "command ran"
 fi

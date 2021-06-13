@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -euo pipefail
+
+doas multitail /var/log/fail2ban.log

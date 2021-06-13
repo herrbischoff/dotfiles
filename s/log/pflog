@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -euo pipefail
+
+multitail -cS pflog -l 'doas tcpdump -n -e -i pflog0'

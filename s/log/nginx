@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -euo pipefail
+
+doas multitail --mergeall /var/log/nginx/*.access.log
